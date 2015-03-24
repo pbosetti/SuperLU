@@ -21,20 +21,20 @@ PLAT = _linux
 #
 #  The name of the libraries to be created/linked to
 #
-SuperLUroot	= $(HOME)/Codes/SuperLU/SuperLU_4.3
+SuperLUroot	= $(HOME)/Develop/SuperLU
 SUPERLULIB   	= $(SuperLUroot)/lib/libsuperlu_4.3.a
-TMGLIB       	= libtmglib.a
 
-## BLASLIB   	= $(SuperLUroot)/lib/libblas.a
-
-BLASDEF 	= -DUSE_VENDOR_BLAS
-BLASLIB 	= -L$(HOME)/lib/GotoBLAS -lgoto
+#BLASLIB   	= $(SuperLUroot)/lib/libblas.a
 
 ## ATLAS BLAS causes single-precision to fail
+#BLASDEF = -DUSE_VENDOR_BLAS
 #BLASLIB   	= -L/usr/lib/atlas -lblas
-## This BLAS causes single-precision to fail the test in SuperLU
-#BLASLIB 	= -L/usr/lib -lblas
 
+## This BLAS causes single-precision to fail the test in SuperLU
+BLASDEF 	= -DUSE_VENDOR_BLAS
+BLASLIB 	= -L/usr/lib -lblas
+
+TMGLIB       	= libtmglib.a
 LIBS		= $(SUPERLULIB) $(BLASLIB)
 
 #
@@ -46,7 +46,7 @@ ARCHFLAGS    = cr
 RANLIB       = ranlib
 
 CC           = gcc
-CFLAGS       = -DPRNTlevel=0 -O3
+CFLAGS       = -O3
 NOOPTS       = 
 FORTRAN	     = g77
 FFLAGS       = -O2
