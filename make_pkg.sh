@@ -8,9 +8,9 @@ TEMP_DIR="Mechatronix_pkg"
 PLATFORM=`uname`
 
 mkdir -p ${BUILT_PRODUCTS_DIR}/usr/lib
-mkdir -p ${BUILT_PRODUCTS_DIR}/usr/include
+mkdir -p ${BUILT_PRODUCTS_DIR}/usr/include/superlu
 cp lib/* ${BUILT_PRODUCTS_DIR}/usr/lib
-cp SRC/*.h ${BUILT_PRODUCTS_DIR}/usr/include
+cp SRC/*.h ${BUILT_PRODUCTS_DIR}/usr/include/superlu
 
 function build_deb {
   ARCH=`dpkg --print-architecture`
