@@ -1,6 +1,7 @@
 *.bak
 *.o
 *.out
+.vs
 /INSTALL/test*
 /Products
 /*.deb
